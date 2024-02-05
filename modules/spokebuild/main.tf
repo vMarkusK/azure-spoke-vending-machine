@@ -43,3 +43,6 @@ resource "azurerm_virtual_network_peering" "spokehub" {
 
 //TODO Add required Routes
 
+// Firewall
+
+//TODO Add Policy Collection Group
