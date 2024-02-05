@@ -39,3 +39,7 @@ resource "azurerm_virtual_network_peering" "spokehub" {
   allow_forwarded_traffic   = true
 }
 
+// Routing
+
+//TODO Add required Routes
+
