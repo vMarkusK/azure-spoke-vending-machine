@@ -12,7 +12,6 @@ resource "azurerm_firewall" "afw" {
   location              = var.location
   sku_name              = "AZFW_VNet"
   sku_tier              = "Standard"
-  dns_proxy_enabled     = true
   firewall_policy_id    = azurerm_firewall_policy.afw-policy.id
   threat_intel_mode     = "Alert"
 
@@ -27,6 +26,9 @@ resource "azurerm_firewall_policy" "afw-policy" {
   name                = "afw-policy"
   resource_group_name = azurerm_resource_group.rg-hub.name
   location            = var.location
+   dns {
+     proxy_enabled = true
+   }
 }
 
 resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-default-rcg" {
