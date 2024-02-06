@@ -18,7 +18,7 @@ resource "azurerm_firewall" "afw" {
 
   ip_configuration {
     name                 = "configuration"
-    subnet_id            = azurerm_subnet.subnet-hub.id
+    subnet_id            = azurerm_subnet.subnet-hub[0].id
     public_ip_address_id = azurerm_public_ip.afw-pip.id
   }
 }
@@ -31,7 +31,7 @@ resource "azurerm_firewall_policy" "afw-policy" {
 
 resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-rcg" {
   name               = "default-rcg"
-  firewall_policy_id = azurerm_firewall_policy.afw-policy.name
+  firewall_policy_id = azurerm_firewall_policy.afw-policy.id
   priority           = 200
   application_rule_collection {
     name     = "default-app-rc"
