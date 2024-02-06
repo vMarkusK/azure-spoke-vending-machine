@@ -29,7 +29,7 @@ resource "azurerm_firewall_policy" "afw-policy" {
   location            = var.location
 }
 
-resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-rcg" {
+resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-default-rcg" {
   name               = "default-rcg"
   firewall_policy_id = azurerm_firewall_policy.afw-policy.id
   priority           = 200
