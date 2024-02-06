@@ -14,6 +14,11 @@ variable "tags" {
   }
 }
 
+variable "full-address_space" {
+  description = "Full Adress Space of the Hub&Spoke Topo"
+  default = "10.0.0.0/8" 
+}
+
 // Hub
 variable "rg-hub-name" {
   description = "Name of the Hub RG"
