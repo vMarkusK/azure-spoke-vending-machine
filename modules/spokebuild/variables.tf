@@ -40,6 +40,15 @@ variable "hub-vnet_id" {
   description = "Id of the Hub vnet for Peering"
 }
 
+variable "hub-vnet_address_space" {
+  description = "Name of the Hub vnet for Peering"
+}
+
+variable "afw-private-ip" {
+  default = "afw-private-ip"
+  
+}
+
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = map(string)

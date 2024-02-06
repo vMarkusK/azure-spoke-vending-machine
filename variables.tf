@@ -37,7 +37,7 @@ variable "vnet-hub-address_space" {
 
 variable "hub-subnet_names" {
   description = "Subnet Names of the Hub VNet"
-  default     = ["AzureFirewall", "NetworkGateway", "ApplicationGateway"]
+  default     = ["AzureFirewallSubnet", "NetworkGatewaySubnet", "ApplicationGatewaySubnet"]
 }
 
 variable "hub-subnet_prefixes" {

@@ -41,8 +41,31 @@ resource "azurerm_virtual_network_peering" "spokehub" {
 
 // Routing
 
-//TODO Add required Routes
+resource "azurerm_route_table" "spoke-rt-table" {
+  name                          = "rt-${var.vnet_name}"
+  location                      = var.location
+  resource_group_name           = azurerm_resource_group.rg-spoke.name
+  tags                          = var.tags
+}
+
+resource "azurerm_route" "default-route" {
+  name                          = "default-route-entry"
+  resource_group_name           = azurerm_resource_group.rg-spoke.name
+  route_table_name              = azurerm_route_table.spoke-rt-table.name
+  address_prefix                = "0.0.0.0/0"
+  next_hop_type                 = "VirtualAppliance"
+  next_hop_in_ip_address        = var.afw-private-ip
+}
+
+resource "azurerm_route" "peering-route" {
+  name                          = "peering-route-entry"
+  resource_group_name           = azurerm_resource_group.rg-spoke.name
+  route_table_name              = azurerm_route_table.spoke-rt-table.name
+  address_prefix                = var.hub-vnet_address_space
+  next_hop_type                 = "VirtualAppliance"
+  next_hop_in_ip_address        = var.afw-private-ip
+}
 
 // Firewall
 
-//TODO Add Policy Collection Group
+//TODO Add Spoke specific Policy Collection Group
