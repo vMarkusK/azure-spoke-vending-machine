@@ -42,7 +42,7 @@ variable "hub-subnet_names" {
 
 variable "hub-subnet_prefixes" {
   description = "Subnet Prefixes of the Hub VNet"
-  default     = ["10.0.0.32/27", "10.0.0.64/27", "10.0.0.96/27"]
+  default     = ["10.0.0.0/27", "10.0.0.32/27", "10.0.0.64/27"]
 }
 
 // Spoke1
