@@ -97,3 +97,32 @@ variable "spoke2_subnet_prefixes" {
   default = ["10.101.1.0/24", "10.101.2.0/24", "10.101.3.0/24"]
 }
 
+variable "compute_rg_name" {
+  description = "Compute RG Name"
+  default     = "rg-compute-001"
+}
+
+variable "cloudconfig_file_nginx" {
+  description = "The location of the cloud init configuration file."
+  default = "cloudconfig_nginx.tpl"
+}
+
+variable "vm_admin_user" {
+  description = "Username for Virtual Machines"
+  default     = "azureuser"
+}
+variable "vm_admin_pwd" {
+  description = "Password for Virtual Machines"
+}
+
+variable "vm_size" {
+  description = "Size of the VMs"
+  default     = "Standard_B1s"
+}
+
+variable "spoke1_vm_hostname"{
+  description = "Hostname of spoke1 VM"
+  default     = "vm-spoke1-dev-001"
+}
+
+
