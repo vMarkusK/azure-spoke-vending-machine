@@ -18,22 +18,17 @@ resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-spoke1-rcg"
   name               = "spoke1-rcg"
   firewall_policy_id = azurerm_firewall_policy.afw-policy.id
   priority           = 201
-  application_rule_collection {
-    name     = "spoke1-app-rc"
-    priority = 200
+
+  network_rule_collection {
+    name     = "spoke1-net-rc"
+    priority = 100
     action   = "Allow"
     rule {
-      name = "app_rule_allow_nginx_http"
-      protocols {
-        type = "Http"
-        port = 80
-      }
-      protocols {
-        type = "Https"
-        port = 443
-      }
-      source_addresses  = [var.full-address_space]
+      name                  = "network_rule_allow_http_to_spoke1vm"
+      protocols             = ["TCP"]
+      source_addresses      = [ var.full-address_space ]
       destination_addresses = [ module.linuxvmspoke1.vmnicip ]
+      destination_ports     = ["80"]
     }
   }
 }
