@@ -145,11 +145,17 @@ variable "vm_size" {
 }
 
 // Compute Spoke1
-
 variable "spoke1_vm_hostname"{
   description = "Hostname of spoke1 VM"
   type        = string
   default     = "vm-spoke1-dev-001"
+}
+
+// Compute Spoke2
+variable "spoke2_vm_hostname"{
+  description = "Hostname of spoke1 VM"
+  type        = string
+  default     = "vm-spoke2-dev-001"
 }
 
 
