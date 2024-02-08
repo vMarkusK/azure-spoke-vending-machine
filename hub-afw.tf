@@ -1,9 +1,14 @@
+resource "random_id" "randomidfirewall" {
+        byte_length = 4
+}
+
 resource "azurerm_public_ip" "afw-pip" {
   name                = "afw-pip"
   resource_group_name = azurerm_resource_group.rg-hub.name
   location            = var.location
   allocation_method   = "Static"
   sku                 = "Standard"
+  domain_name_label   = "afw-pip-${random_id.randomidfirewall.hex}"
 }
 
 resource "azurerm_firewall" "afw" {
