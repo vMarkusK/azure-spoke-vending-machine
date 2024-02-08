@@ -66,6 +66,12 @@ resource "azurerm_route" "peering-route" {
   next_hop_in_ip_address        = var.afw-private-ip
 }
 
+resource "azurerm_subnet_route_table_association" "route_table_association" {
+  route_table_id = azurerm_route_table.spoke-rt-table.id
+  subnet_id      = azurerm_subnet.subnet-spoke[count.index].id
+  count          = length(azurerm_subnet.subnet-spoke)
+}
+
 // Firewall
 
 //TODO Add Spoke specific Policy Collection Group

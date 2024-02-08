@@ -1,9 +1,9 @@
-module "linuxvmspoke1" {
+module "linuxvmspoke2" {
     source        = "./modules/linuxvmnginx"
     rgname        = azurerm_resource_group.compute_rg.name
     location      = var.location
-    subnetid      = module.spoke1network.vnet_subnets[0]
-    vmname        = var.spoke1_vm_hostname
+    subnetid      = module.spoke2network.vnet_subnets[0]
+    vmname        = var.spoke2_vm_hostname
     vmpassword    = var.vm_admin_pwd
     adminusername = var.vm_admin_user
     vmsize        = var.vm_size
