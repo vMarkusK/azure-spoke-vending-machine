@@ -1,15 +1,16 @@
 # Azure Hub & Spoke - Spoke Vending Machine in Terraform
 
-This Terraform specification is designed for a fast and resilient deployment of further spokes to a Hub&Spoke architecture. The base Hub&Spoke architecture comes with an Azure Firewall.
+This Terraform specification is designed for a fast and resilient deployment of additional spokes to a Hub&Spoke architecture. The base Hub&Spoke architecture comes with an Azure Firewall, two spokes each both then including a Linux VM.
 
 ** This is an example and is not ready for production use **
 
 ## Design Decisions
 
-- Azure Firewall and VMs are finned to Zone 1
-- The default Route of the Spoke Sunbets is set to Azure Firewall
+- Azure Firewall and VMs are pinned to Availability Zone 1 (to test Latency)
+- The default Route of the Spoke Subnets is set to Azure Firewall
 - VNet Peering Route of the Spokes is set to Azure Firewall
-- Single Subscription (its an Example)
+- Single Subscription use (it is an Example)
+  Boot Diagnostic to VMs is enabled
 
 ## How to add Spokes
 
