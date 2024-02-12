@@ -52,13 +52,14 @@ resource "azurerm_storage_account" "spokestorageaccount" {
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "spokevm" {
-    name                             = var.vmname
-    location                         = var.location
-    resource_group_name              = var.rgname
-    network_interface_ids            = [azurerm_network_interface.spokevmnic.id]
-    vm_size                          = var.vmsize
-    delete_os_disk_on_termination    = true
-    delete_data_disks_on_termination = true
+    name                                = var.vmname
+    location                            = var.location
+    resource_group_name                 = var.rgname
+    network_interface_ids               = [azurerm_network_interface.spokevmnic.id]
+    vm_size                             = var.vmsize
+    delete_os_disk_on_termination       = true
+    delete_data_disks_on_termination    = true
+    proximity_placement_group_id        = var.proximity_placement_group_id
 
     storage_os_disk {
         name              = "${var.vmname}-myOsDisk"

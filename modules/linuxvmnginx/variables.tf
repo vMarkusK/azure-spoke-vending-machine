@@ -30,6 +30,11 @@ variable "cloudconfig_file_nginx" {
   
 }
 
+variable "proximity_placement_group_id" {
+  description = "The Id of the proximity placement group."
+  
+}
+
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = map(string)
