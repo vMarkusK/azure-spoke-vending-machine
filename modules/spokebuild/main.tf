@@ -71,7 +71,3 @@ resource "azurerm_subnet_route_table_association" "route_table_association" {
   subnet_id      = azurerm_subnet.subnet-spoke[count.index].id
   count          = length(azurerm_subnet.subnet-spoke)
 }
-
-// Firewall
-
-//TODO Add Spoke specific Policy Collection Group
