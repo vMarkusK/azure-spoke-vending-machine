@@ -10,7 +10,8 @@ This Terraform specification is designed for a fast and resilient deployment of 
 - The default Route of the Spoke Subnets is set to Azure Firewall
 - VNet Peering Route of the Spokes is set to Azure Firewall
 - Single Subscription use (it is an Example)
-  Boot Diagnostic to VMs is enabled
+- No High Availability (Storage, Compute, and Firewall in a single AZ)
+- Boot Diagnostic to VMs is enabled
 
 ## How to add Spokes
 
