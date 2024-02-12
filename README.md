@@ -2,7 +2,7 @@
 
 This Terraform specification is designed for a fast and resilient deployment of additional spokes to a Hub&Spoke architecture. The base Hub&Spoke architecture comes with an Azure Firewall, two spokes each both then including a Linux VM.
 
-** This is an example and is not ready for production use **
+**This is an example and is not ready for production use**
 
 ## Design Decisions
 
