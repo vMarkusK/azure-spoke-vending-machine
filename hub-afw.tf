@@ -19,6 +19,7 @@ resource "azurerm_firewall" "afw" {
   sku_tier              = "Standard"
   firewall_policy_id    = azurerm_firewall_policy.afw-policy.id
   threat_intel_mode     = "Alert"
+  zones                 = [ "1" ]
 
   ip_configuration {
     name                 = "configuration"
