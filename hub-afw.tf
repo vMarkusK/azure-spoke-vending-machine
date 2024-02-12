@@ -9,6 +9,7 @@ resource "azurerm_public_ip" "afw-pip" {
   allocation_method   = "Static"
   sku                 = "Standard"
   domain_name_label   = "afw-pip-${random_id.randomidfirewall.hex}"
+  zones               = [ "1" ]
 }
 
 resource "azurerm_firewall" "afw" {
