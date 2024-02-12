@@ -12,6 +12,8 @@ This Terraform specification is designed for a fast and resilient deployment of 
 - Single Subscription use (it is an Example)
 - No High Availability (Storage, Compute, and Firewall in a single AZ)
 - Boot Diagnostic to VMs is enabled
+- VMs depend on Azure Firewall to ensure initial Update and package installation succeeds
+- VMs use Cloud-Init to run `apt upgrade` and `apt install nginx` 
 
 ## How to add Spokes
 
@@ -97,6 +99,6 @@ variable "spoke1_subnet_prefixes" {
 }
 ```
 
-1. Copy "spoke1-vnet.tf" to "spoke<YourName>-vnet.tf"
-2. Find and Replace "spoke1" in the Variable Names with "spoke<YourName>"
-3. Add Unique variables required for the Spoke to the "variables.tf" and also Find and Replace "spoke1" in the Variable Names with "spoke<YourName>"
+1. Copy "spoke1-vnet.tf" to "spoke[YourName]-vnet.tf"
+2. Find and Replace "spoke1" in the Variable Names with "spoke[YourName]"
+3. Add Unique variables required for the Spoke to the "variables.tf" and also Find and Replace "spoke1" in the Variable Names with "spoke[YourName]"
