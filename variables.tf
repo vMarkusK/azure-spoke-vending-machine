@@ -10,7 +10,7 @@ variable "tags" {
 
   default = {
     applicationname = "SpokeVendingMachine"
-    env             = "Dev"
+    environment     = "Dev"
     supportgroup    = "Markus Kraus"
   }
 }
