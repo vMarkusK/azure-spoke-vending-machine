@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  tflint:
     runs-on: ubuntu-latest
     permissions:
       actions: read
