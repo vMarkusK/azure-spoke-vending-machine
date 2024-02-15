@@ -19,5 +19,5 @@ jobs:
       - name: tfsec commenter
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
-          tfsec_args: --force-all-dirs
+          working_directory: ''
           github_token: ${{ github.token }}
