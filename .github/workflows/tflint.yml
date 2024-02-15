@@ -5,8 +5,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  tflint:
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
     steps:
     - uses: actions/checkout@v3
       name: Checkout source code
@@ -22,7 +25,6 @@ jobs:
     - name: Init TFLint
       run: tflint --init
       env:
-        # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Run TFLint

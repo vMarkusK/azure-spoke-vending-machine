@@ -115,7 +115,6 @@ variable "spoke2_subnet_prefixes" {
 }
 
 // Compute General
-
 variable "compute_rg_name" {
   description = "Compute RG Name"
   type        = string
