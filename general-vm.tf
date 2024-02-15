@@ -1,6 +1,7 @@
 resource "azurerm_resource_group" "compute_rg" {
   name     = var.compute_rg_name
   location = var.location
+  tags     = var.tags
 }
 
 resource "azurerm_proximity_placement_group" "placement_group_az1" {

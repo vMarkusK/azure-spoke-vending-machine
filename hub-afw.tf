@@ -10,6 +10,7 @@ resource "azurerm_public_ip" "afw-pip" {
   sku                 = "Standard"
   domain_name_label   = "afw-pip-${random_id.randomidfirewall.hex}"
   zones               = ["1"]
+  tags                = var.tags
 }
 
 resource "azurerm_firewall" "afw" {
@@ -27,15 +28,20 @@ resource "azurerm_firewall" "afw" {
     subnet_id            = azurerm_subnet.subnet-hub[0].id
     public_ip_address_id = azurerm_public_ip.afw-pip.id
   }
+
+  tags = var.tags
 }
 
 resource "azurerm_firewall_policy" "afw-policy" {
   name                = "afw-policy"
   resource_group_name = azurerm_resource_group.rg-hub.name
   location            = var.location
+
   dns {
     proxy_enabled = true
   }
+
+  tags = var.tags
 }
 
 resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-default-rcg" {
