@@ -17,6 +17,6 @@ jobs:
           persist-credentials: false
       
       - name: tfsec commenter
-        uses: aquasecurity/tfsec-pr-commenter-action@main
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
           github_token: ${{ github.token }}
