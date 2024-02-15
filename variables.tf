@@ -9,16 +9,16 @@ variable "tags" {
   type        = map(string)
 
   default = {
-    applicationname   = "SpokeVendingMachine"
-    env               = "Dev"
-    supportgroup      = "Markus Kraus"
+    applicationname = "SpokeVendingMachine"
+    env             = "Dev"
+    supportgroup    = "Markus Kraus"
   }
 }
 
 variable "full-address_space" {
   description = "Full Adress Space of the Hub&Spoke Topo"
   type        = string
-  default     = "10.0.0.0/8" 
+  default     = "10.0.0.0/8"
 }
 
 // Hub
@@ -99,7 +99,7 @@ variable "spoke2_vnet_name" {
 variable "spoke2_address_space" {
   description = "spoke2 Address Space"
   type        = string
-  default = "10.101.0.0/16"
+  default     = "10.101.0.0/16"
 }
 
 variable "spoke2_subnet_names" {
@@ -145,14 +145,14 @@ variable "vm_size" {
 }
 
 // Compute Spoke1
-variable "spoke1_vm_hostname"{
+variable "spoke1_vm_hostname" {
   description = "Hostname of spoke1 VM"
   type        = string
   default     = "vm-spoke1-dev-001"
 }
 
 // Compute Spoke2
-variable "spoke2_vm_hostname"{
+variable "spoke2_vm_hostname" {
   description = "Hostname of spoke1 VM"
   type        = string
   default     = "vm-spoke2-dev-001"
