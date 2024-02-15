@@ -8,7 +8,7 @@ resource "azurerm_proximity_placement_group" "placement_group_az1" {
   location            = var.location
   resource_group_name = azurerm_resource_group.compute_rg.name
   zone                = 1
-  allowed_vm_sizes    = [ var.vm_size ]
+  allowed_vm_sizes    = [var.vm_size]
   tags                = var.tags
 }
 
@@ -17,6 +17,6 @@ resource "azurerm_proximity_placement_group" "placement_group_az2" {
   location            = var.location
   resource_group_name = azurerm_resource_group.compute_rg.name
   zone                = 2
-  allowed_vm_sizes    = [ var.vm_size ]
+  allowed_vm_sizes    = [var.vm_size]
   tags                = var.tags
 }
