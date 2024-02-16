@@ -24,3 +24,4 @@ jobs:
           exit-code: '1'
           ignore-unfixed: true
           severity: 'MEDIUM,HIGH,CRITICAL'
+          github-pat: ${{ github.token }}
