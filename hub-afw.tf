@@ -4,7 +4,7 @@ resource "random_id" "randomidfirewall" {
 
 resource "azurerm_public_ip" "afw-pip" {
   name                = "afw-pip"
-  resource_group_name = azurerm_resource_group.rg-hub.name
+  resource_group_name = azurerm_resource_group.rg_hub.name
   location            = var.location
   allocation_method   = "Static"
   sku                 = "Standard"
@@ -15,7 +15,7 @@ resource "azurerm_public_ip" "afw-pip" {
 
 resource "azurerm_firewall" "afw" {
   name                = "afw"
-  resource_group_name = azurerm_resource_group.rg-hub.name
+  resource_group_name = azurerm_resource_group.rg_hub.name
   location            = var.location
   sku_name            = "AZFW_VNet"
   sku_tier            = "Standard"
@@ -25,7 +25,7 @@ resource "azurerm_firewall" "afw" {
 
   ip_configuration {
     name                 = "configuration"
-    subnet_id            = azurerm_subnet.subnet-hub[0].id
+    subnet_id            = azurerm_subnet.subnet_hub[0].id
     public_ip_address_id = azurerm_public_ip.afw-pip.id
   }
 
@@ -34,7 +34,7 @@ resource "azurerm_firewall" "afw" {
 
 resource "azurerm_firewall_policy" "afw-policy" {
   name                = "afw-policy"
-  resource_group_name = azurerm_resource_group.rg-hub.name
+  resource_group_name = azurerm_resource_group.rg_hub.name
   location            = var.location
 
   dns {
