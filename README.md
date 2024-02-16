@@ -44,7 +44,7 @@ module "spoke1network" {
 }
 
 // Options Rule Collection Group for Spoke
-resource "azurerm_firewall_policy_rule_collection_group" "afw_policy-spoke1-rcg" {
+resource "azurerm_firewall_policy_rule_collection_group" "afw_policy_spoke1_rcg" {
   name               = "spoke1-rcg"
   firewall_policy_id = azurerm_firewall_policy.afw_policy.id
   priority           = 201
