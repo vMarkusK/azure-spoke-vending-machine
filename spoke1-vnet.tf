@@ -14,9 +14,9 @@ module "spoke1network" {
   tags                    = var.tags
 }
 
-resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-spoke1-rcg" {
+resource "azurerm_firewall_policy_rule_collection_group" "afw_policy-spoke1-rcg" {
   name               = "spoke1-rcg"
-  firewall_policy_id = azurerm_firewall_policy.afw-policy.id
+  firewall_policy_id = azurerm_firewall_policy.afw_policy.id
   priority           = 201
 
   network_rule_collection {

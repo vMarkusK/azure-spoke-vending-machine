@@ -2,13 +2,13 @@ resource "random_id" "randomidfirewall" {
   byte_length = 4
 }
 
-resource "azurerm_public_ip" "afw-pip" {
-  name                = "afw-pip"
+resource "azurerm_public_ip" "afw_pip" {
+  name                = "afw_pip"
   resource_group_name = azurerm_resource_group.rg_hub.name
   location            = var.location
   allocation_method   = "Static"
   sku                 = "Standard"
-  domain_name_label   = "afw-pip-${random_id.randomidfirewall.hex}"
+  domain_name_label   = "afw_pip-${random_id.randomidfirewall.hex}"
   zones               = ["1"]
   tags                = var.tags
 }
@@ -19,21 +19,21 @@ resource "azurerm_firewall" "afw" {
   location            = var.location
   sku_name            = "AZFW_VNet"
   sku_tier            = "Standard"
-  firewall_policy_id  = azurerm_firewall_policy.afw-policy.id
+  firewall_policy_id  = azurerm_firewall_policy.afw_policy.id
   threat_intel_mode   = "Alert"
   zones               = ["1"]
 
   ip_configuration {
     name                 = "configuration"
     subnet_id            = azurerm_subnet.subnet_hub[0].id
-    public_ip_address_id = azurerm_public_ip.afw-pip.id
+    public_ip_address_id = azurerm_public_ip.afw_pip.id
   }
 
   tags = var.tags
 }
 
-resource "azurerm_firewall_policy" "afw-policy" {
-  name                = "afw-policy"
+resource "azurerm_firewall_policy" "afw_policy" {
+  name                = "afw_policy"
   resource_group_name = azurerm_resource_group.rg_hub.name
   location            = var.location
 
@@ -44,9 +44,9 @@ resource "azurerm_firewall_policy" "afw-policy" {
   tags = var.tags
 }
 
-resource "azurerm_firewall_policy_rule_collection_group" "afw-policy-default-rcg" {
+resource "azurerm_firewall_policy_rule_collection_group" "afw_policy_default_rcg" {
   name               = "default-rcg"
-  firewall_policy_id = azurerm_firewall_policy.afw-policy.id
+  firewall_policy_id = azurerm_firewall_policy.afw_policy.id
   priority           = 200
   application_rule_collection {
     name     = "default-app-rc"

@@ -11,5 +11,5 @@ module "linuxvmspoke1" {
   proximity_placement_group_id = azurerm_proximity_placement_group.placement_group_az1.id
   tags                         = var.tags
 
-  depends_on = [azurerm_firewall.afw, azurerm_firewall_policy.afw-policy, azurerm_firewall_policy_rule_collection_group.afw-policy-default-rcg]
+  depends_on = [azurerm_firewall.afw, azurerm_firewall_policy.afw_policy, azurerm_firewall_policy_rule_collection_group.afw_policy_default_rcg]
 }
