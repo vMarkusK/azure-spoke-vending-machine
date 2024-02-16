@@ -22,19 +22,19 @@ variable "full-address_space" {
 }
 
 // Hub
-variable "rg-hub-name" {
+variable "rg_hub-name" {
   description = "Name of the Hub RG"
   type        = string
   default     = "rg-net-hub-001"
 }
 
-variable "vnet-hub-name" {
+variable "vnet_hub-name" {
   description = "Name of the Hub VNet"
   type        = string
-  default     = "vnet-hub-001"
+  default     = "vnet_hub-001"
 }
 
-variable "vnet-hub-address_space" {
+variable "vnet_hub-address_space" {
   description = "Address Space of the Hub VNet"
   type        = list(string)
   default     = ["10.0.0.0/16"]
