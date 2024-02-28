@@ -2,10 +2,6 @@ output "vm_username" {
   value = var.vm_admin_user
 }
 
-output "vm_password" {
-  value = var.vm_admin_pwd
-}
-
 output "spoke1_vm_private_ip" {
   value = module.linuxvmspoke1.vmnicip
 }
