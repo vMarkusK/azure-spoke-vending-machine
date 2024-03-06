@@ -122,7 +122,7 @@ variable "compute_rg_name" {
 }
 
 variable "cloudconfig_file_nginx" {
-  description = "The location of the cloud init configuration file."
+  description = "The location of the cloud-init configuration file."
   type        = string
   default     = "cloudconfig_nginx.tpl"
 }
